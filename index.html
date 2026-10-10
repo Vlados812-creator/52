@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Книга достижений</title>
+<meta name="description" content="Каталог личных рекордов и заслуг участников: академические достижения, спортивные рекорды, творчество и активизм.">
+<meta name="theme-color" content="#0D1B2A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=BA2F1SHZH1b9AVy4BACzN6vMQDA5y_GonFzzYh5sl6gAgPyyOQmQiJr-9p4VtXFLtv36d2Cn87mf-Zmo5iB7OC9W906HRrB3UGvFsPNt13IFl2bR5TKnw5tjVkaFudJK5w9GdGOUtU9DG3AUj5PgWno9whZPqdZ3PERqgt3X_JFrbt_UkwXHqnZAUZcn1eyPxLgB7FziS-7bRAMYCLDohQFrrAFejbHRXIjQLU0F0M-M9cWd7i7kMRVfCeVvK-9D7bGWqiycTWzhvzCPRWFxs5Fqn3yWI8BuQv5ySbIa8f0HGV1ktna70-bD64JXnVxX" charset="UTF-8"></script><style>
+  /* ---------- Токены ---------- */
+  :root {
+    --ink: #0D1B2A;
+    --c-academic: #3454E6;
+    --c-sport: #D63A1F;
+    --c-creative: #0A7A6D;
+
+    --bg: #F2F4F8;
+    --surface: #FFFFFF;
+    --text: #101828;
+    --muted: #566074;
+    --line: #DCE1EA;
+    --focus: #2540C8;
+
+    --font-display: "Unbounded", "Onest", system-ui, sans-serif;
+    --font-body: "Onest", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0A111C; --surface: #111B2B; --text: #E9EDF5;
+      --muted: #9AA6BC; --line: #22304A; --focus: #9DB0FF;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0A111C; --surface: #111B2B; --text: #E9EDF5;
+    --muted: #9AA6BC; --line: #22304A; --focus: #9DB0FF;
+  }
+
+  html {
+    background: var(--ink);
+    scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px);
+  }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  html:has(dialog[open]) { overflow: hidden; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .site-header :focus-visible, .hero :focus-visible, .site-footer :focus-visible { outline-color: #9DB0FF; }
+
+  .wrap {
+    width: 100%; max-width: 1180px; margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 48px);
+  }
+
+  /* ---------- Кнопки ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+    min-height: 44px; padding: .8rem 1.3rem;
+    font: 600 .95rem/1 var(--font-body);
+    border: 1.5px solid transparent; border-radius: 999px;
+    cursor: pointer; text-decoration: none;
+    transition: background .15s, opacity .15s;
+  }
+  .btn--light { background: #fff; color: var(--ink); }
+  .btn--light:hover { background: #E4EAFF; }
+  .btn--solid { background: var(--text); color: var(--bg); }
+  .btn--solid:hover { opacity: .88; }
+  .btn--lg { min-height: 54px; padding: 1.05rem 1.8rem; font-size: 1.05rem; }
+  .btn--sm { min-height: 42px; padding: .65rem 1.1rem; font-size: .9rem; }
+  .btn[disabled] { opacity: .6; cursor: progress; }
+
+  /* ---------- Шапка ---------- */
+  .site-header {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: rgba(13, 27, 42, .88);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    color: #fff;
+  }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; }
+  .brand__name { font-family: var(--font-display); font-weight: 500; font-size: .9rem; letter-spacing: -.01em; }
+  .nav { display: flex; align-items: center; gap: 24px; }
+  .nav a:not(.btn) { color: rgba(255,255,255,.8); text-decoration: none; font-size: .95rem; padding: 10px 0; }
+  .nav a:not(.btn):hover { color: #fff; }
+  @media (max-width: 760px) { .nav a:not(.btn) { display: none; } }
+  @media (max-width: 520px) { .brand__name { display: none; } }
+
+  /* ---------- Главный экран ---------- */
+  .hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    display: flex; align-items: center;
+    min-height: clamp(560px, 86vh, 860px);
+    color: #fff;
+    background:
+      radial-gradient(900px 620px at 74% 40%, #1E3A5F 0%, transparent 62%),
+      linear-gradient(180deg, var(--ink) 0%, #091420 100%);
+  }
+  .hero .wrap { position: relative; z-index: 2; padding-block: 80px; }
+  .hero__photo {
+    position: absolute; inset: 0; z-index: 0; opacity: 0;
+    background: var(--hero-photo, none) center / cover no-repeat;
+    transition: opacity .4s ease;
+  }
+  .hero.has-photo .hero__photo { opacity: .55; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(90deg, rgba(13,27,42,.94) 0%, rgba(13,27,42,.6) 48%, rgba(13,27,42,0) 85%);
+  }
+  @media (max-width: 720px) {
+    .hero::after {
+      background: linear-gradient(180deg, rgba(13,27,42,.7) 0%, rgba(13,27,42,.75) 60%, rgba(13,27,42,.95) 100%);
+    }
+  }
+
+  /* Кубок — главный визуальный акцент главного экрана */
+  .hero__art {
+    position: absolute; z-index: 0; pointer-events: none;
+    right: clamp(-60px, 1vw, 30px); top: 50%; transform: translateY(-50%);
+    width: min(620px, 54vw); height: auto;
+    filter: drop-shadow(0 40px 70px rgba(0, 0, 0, .5));
+    animation: artIn .9s ease-out;
+  }
+  @keyframes artIn { from { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hero__art { animation: none; } }
+  @media (max-width: 980px) {
+    .hero__art { right: -10vw; width: 64vw; opacity: .6; }
+  }
+  @media (max-width: 720px) {
+    .hero__art {
+      right: 50%; top: 44%; transform: translate(50%, -50%);
+      width: 92vw; opacity: .22;
+    }
+  }
+
+  .hero h1 {
+    margin: 0 0 24px;
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(1.9rem, 7.6vw, 5.4rem);
+    line-height: 1.04; letter-spacing: -.02em;
+  }
+  .hero__sub {
+    margin: 0 0 36px; max-width: 30em;
+    font-size: clamp(1.05rem, 2vw, 1.35rem); color: rgba(255,255,255,.8);
+  }
+
+  /* ---------- О проекте ---------- */
+  .about { padding-block: clamp(56px, 9vw, 112px); }
+  .about__grid { display: grid; gap: 20px 64px; grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .about__grid { grid-template-columns: minmax(200px, 1fr) 2fr; } }
+  h2.title {
+    margin: 0; font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(1.5rem, 3.4vw, 2.4rem); line-height: 1.15; letter-spacing: -.015em;
+  }
+  .about p { margin: 0; max-width: 36em; font-size: clamp(1.15rem, 2.2vw, 1.6rem); line-height: 1.5; }
+
+  /* ---------- Каталог ---------- */
+  .catalog { padding-block: 0 clamp(64px, 9vw, 120px); }
+  .catalog__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; margin: 32px 0 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    --c: var(--text);
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 44px; padding: 0 16px;
+    font: 500 .92rem var(--font-body); color: var(--text);
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px;
+    cursor: pointer; transition: background .15s, border-color .15s, color .15s;
+  }
+  .chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+  .chip b { font-weight: 600; font-size: .82rem; color: var(--muted); }
+  .chip[aria-pressed="true"] { background: var(--c); border-color: var(--c); color: #fff; }
+  .chip[aria-pressed="true"] i { background: #fff; }
+  .chip[aria-pressed="true"] b { color: rgba(255,255,255,.85); }
+  .chip[data-cat="all"][aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+  .chip[data-cat="all"][aria-pressed="true"] b { color: var(--bg); opacity: .75; }
+
+  .search {
+    width: min(100%, 260px); min-height: 44px; padding: 0 16px;
+    font: inherit; font-size: 1rem; color: var(--text);
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px;
+  }
+  .search::placeholder { color: var(--muted); }
+  .status { margin: 0 0 20px; font-size: .9rem; color: var(--muted); }
+
+  .grid {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; align-items: start; gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
+  }
+  .card {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  }
+  .card__photo { aspect-ratio: 1 / 1; background: var(--line); }
+  .card__photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .card__ribbon {
+    position: absolute; top: 0; right: 18px; width: 24px; height: 38px;
+    background: var(--c);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+  }
+  .card__body { display: flex; flex-direction: column; gap: 10px; padding: 18px 18px 14px; }
+  .tag {
+    align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 11px; font-size: .8rem; font-weight: 600; color: var(--text);
+    background: color-mix(in srgb, var(--c) 14%, transparent); border-radius: 999px;
+  }
+  .tag i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+  .card h3 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; line-height: 1.3; }
+  .card__text {
+    margin: 0; font-size: .95rem; color: var(--muted);
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;
+  }
+  .card__text.is-open { display: block; overflow: visible; }
+  .more {
+    align-self: flex-start; padding: 8px 0 6px;
+    font: 600 .9rem var(--font-body); color: var(--text);
+    background: none; border: 0; cursor: pointer;
+    text-decoration: underline; text-underline-offset: 4px;
+  }
+  .more[hidden] { display: none; }
+
+  .empty {
+    padding: 44px 24px; text-align: center; color: var(--muted);
+    border: 1.5px dashed var(--line); border-radius: 16px;
+  }
+  .empty p { margin: 0 0 16px; }
+
+  /* ---------- Форма (окно) ---------- */
+  dialog {
+    width: min(560px, calc(100% - 24px)); max-height: calc(100dvh - 24px);
+    padding: 0; overflow: auto;
+    color: var(--text); background: var(--surface);
+    border: 0; border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(5, 10, 20, .45);
+  }
+  dialog::backdrop { background: rgba(8, 14, 24, .62); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+  dialog[open] { animation: pop .2s ease-out; }
+  @keyframes pop { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { dialog[open] { animation: none; } }
+
+  .dlg { padding: clamp(20px, 4vw, 32px); }
+  .dlg[hidden] { display: none; }
+  .dlg__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+  .dlg h3 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; line-height: 1.25; }
+  .close {
+    flex: none; width: 44px; height: 44px; margin: -6px -8px 0 0;
+    display: grid; place-items: center;
+    color: var(--text); background: none; border: 0; border-radius: 50%; cursor: pointer;
+  }
+  .close:hover { background: var(--bg); }
+  .lead { margin: 0 0 22px; color: var(--muted); font-size: .95rem; }
+
+  .field { display: grid; gap: 6px; margin-bottom: 16px; }
+  .field label { font-weight: 600; font-size: .92rem; }
+  .opt { margin-left: 6px; font-weight: 400; color: var(--muted); }
+  .input {
+    width: 100%; min-height: 46px; padding: 12px 14px;
+    font: inherit; font-size: 1rem; color: var(--text);
+    background: var(--bg); border: 1.5px solid var(--line); border-radius: 12px;
+  }
+  .input:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+  textarea.input { min-height: 128px; resize: vertical; }
+  .input[type="file"] { padding: 8px; }
+  .input[type="file"]::file-selector-button {
+    margin-right: 12px; padding: 8px 14px;
+    font: 600 .9rem var(--font-body); color: var(--text);
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: 999px; cursor: pointer;
+  }
+  .hint { font-size: .85rem; color: var(--muted); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .form-foot { display: grid; gap: 12px; margin-top: 8px; }
+  .form-foot .btn { width: 100%; }
+  .msg { min-height: 1.4em; margin: 0; font-size: .92rem; color: var(--c-sport); }
+  [data-theme="dark"] .msg { color: #FF8B73; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .msg { color: #FF8B73; } }
+
+  .done { text-align: left; }
+  .done__mark { width: 52px; height: 52px; margin-bottom: 18px; display: grid; place-items: center; color: #fff; background: var(--c-creative); border-radius: 50%; }
+  .done h3:focus { outline: none; }
+  .done p { margin: 12px 0 24px; color: var(--muted); }
+  .done .demo { padding: 12px 14px; font-size: .9rem; color: var(--text); background: var(--bg); border: 1.5px dashed var(--line); border-radius: 12px; }
+
+  /* ---------- Футер ---------- */
+  .site-footer { background: var(--ink); color: rgba(255,255,255,.8); padding-block: 48px 36px; }
+  .footer__grid { display: grid; gap: 28px 48px; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .footer__grid { grid-template-columns: 1.4fr 1fr; } }
+  .site-footer h2 { margin: 0 0 12px; font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; color: #fff; }
+  .site-footer p { margin: 0 0 6px; }
+  .site-footer a { color: #fff; text-underline-offset: 4px; }
+  .footer__copy { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.14); font-size: .9rem; color: rgba(255,255,255,.62); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Книга достижений — в начало">
+      <svg width="32" height="22" viewBox="0 0 32 22" aria-hidden="true" fill="none" stroke-width="1.7">
+        <rect x="1" y="1" width="30" height="20" rx="10" stroke="#6B85FF"/>
+        <rect x="5" y="5" width="22" height="12" rx="6" stroke="#FF6A4A"/>
+        <rect x="9" y="9" width="14" height="4" rx="2" stroke="#2DC4B2"/>
+      </svg>
+      <span class="brand__name">Книга достижений</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#about">О проекте</a>
+      <a href="#catalog">Каталог</a>
+      <button class="btn btn--light btn--sm" type="button" data-open-form>Предложить рекорд</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="hero__photo" aria-hidden="true"></div>
+
+    <!-- Кубок: главный визуальный акцент -->
+    <svg class="hero__art" viewBox="0 0 720 720" aria-hidden="true">
+      <defs>
+        <linearGradient id="cupGold" x1="0" y1="0" x2=".25" y2="1">
+          <stop offset="0" stop-color="#FFF0BC"/>
+          <stop offset=".38" stop-color="#F3C348"/>
+          <stop offset="1" stop-color="#B8790B"/>
+        </linearGradient>
+        <linearGradient id="cupGoldDark" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#E9B233"/>
+          <stop offset="1" stop-color="#9A6406"/>
+        </linearGradient>
+        <radialGradient id="cupGlow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#F5C24A" stop-opacity=".30"/>
+          <stop offset=".55" stop-color="#F5C24A" stop-opacity=".08"/>
+          <stop offset="1" stop-color="#F5C24A" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- сияние и орбиты -->
+      <circle cx="360" cy="330" r="320" fill="url(#cupGlow)"/>
+      <circle cx="360" cy="330" r="262" fill="none" stroke="#F5C24A" stroke-opacity=".16" stroke-width="1.5"/>
+      <circle cx="360" cy="330" r="206" fill="none" stroke="#F5C24A" stroke-opacity=".09" stroke-width="1.5"/>
+
+      <!-- искры -->
+      <g fill="#FFE9A8">
+        <path opacity=".85" transform="translate(132 172) scale(.95)" d="M0 -16Q3.6 -3.6 16 0 3.6 3.6 0 16 -3.6 3.6 -16 0 -3.6 -3.6 0 -16Z"/>
+        <path opacity=".60" transform="translate(602 214) scale(.7)"  d="M0 -16Q3.6 -3.6 16 0 3.6 3.6 0 16 -3.6 3.6 -16 0 -3.6 -3.6 0 -16Z"/>
+        <path opacity=".70" transform="translate(624 500) scale(1.05)" d="M0 -16Q3.6 -3.6 16 0 3.6 3.6 0 16 -3.6 3.6 -16 0 -3.6 -3.6 0 -16Z"/>
+        <path opacity=".50" transform="translate(112 486) scale(.65)" d="M0 -16Q3.6 -3.6 16 0 3.6 3.6 0 16 -3.6 3.6 -16 0 -3.6 -3.6 0 -16Z"/>
+      </g>
+
+      <!-- ручки кубка -->
+      <path d="M178 202C74 208 60 330 196 348" fill="none" stroke="url(#cupGoldDark)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M542 202C646 208 660 330 524 348" fill="none" stroke="url(#cupGoldDark)" stroke-width="24" stroke-linecap="round"/>
+
+      <!-- чаша -->
+      <path d="M170 172H550C550 336 484 414 400 420H320C236 414 170 336 170 172Z" fill="url(#cupGold)"/>
+      <path d="M214 196C218 300 254 372 306 404" fill="none" stroke="#FFF6D6" stroke-opacity=".45" stroke-width="16" stroke-linecap="round"/>
+
+      <!-- обод -->
+      <rect x="150" y="148" width="420" height="44" rx="22" fill="url(#cupGoldDark)"/>
+      <rect x="176" y="160" width="368" height="11" rx="5.5" fill="#FFF6D6" opacity=".45"/>
+
+      <!-- звезда-гравировка -->
+      <path d="M360 218 375.9 260.2 420.9 262.2 385.7 290.3 397.6 333.8 360 309 322.4 333.8 334.3 290.3 299.1 262.2 344.1 260.2Z" fill="#8A5A00" opacity=".38"/>
+
+      <!-- ножка и основание -->
+      <path d="M330 420H390L378 472H342Z" fill="url(#cupGoldDark)"/>
+      <path d="M350 472H370V534H350Z" fill="url(#cupGoldDark)"/>
+      <path d="M310 534H410L436 594H284Z" fill="url(#cupGold)"/>
+      <rect x="256" y="590" width="208" height="40" rx="20" fill="url(#cupGoldDark)"/>
+    </svg>
+
+    <div class="wrap">
+      <h1>Книга<br>достижений</h1>
+      <p class="hero__sub">Каждый рекорд начинался с первого шага. Здесь мы записываем их все.</p>
+      <a class="btn btn--light btn--lg" href="#catalog">Смотреть каталог</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about__grid">
+      <h2 class="title">О проекте</h2>
+      <p>«Книга достижений» — это каталог личных рекордов и заслуг участников: от олимпиадных побед до волонтёрских акций. Мы собираем их в одном месте, чтобы успехи не терялись, а другие находили, на кого равняться. Каждая запись проходит проверку администратора, прежде чем попасть в книгу.</p>
+    </div>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <div class="wrap">
+      <div class="catalog__head">
+        <h2 class="title">Каталог достижений</h2>
+        <button class="btn btn--solid" type="button" data-open-form>Предложить рекорд</button>
+      </div>
+
+      <div class="controls">
+        <div class="chips" id="chips" role="group" aria-label="Фильтр по категориям"></div>
+        <input class="search" id="search" type="search" placeholder="Поиск по имени" aria-label="Поиск по имени участника" autocomplete="off">
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <ul class="grid" id="grid"></ul>
+
+      <div class="empty" id="empty" hidden>
+        <p>Здесь пока нет записей. Знаете, кто заслуживает попасть в книгу?</p>
+        <button class="btn btn--solid" type="button" data-open-form>Предложить рекорд</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h2>Книга достижений</h2>
+        <p>Каталог личных рекордов и заслуг участников.</p>
+      </div>
+      <div>
+        <h2>Контакты</h2>
+        <p>Почта администратора: <a id="contactMail" href="mailto:vladik5242@mail.ru">vladik5242@mail.ru</a></p>
+        <p>Заявки на публикацию принимаются через форму «Предложить рекорд».</p>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 Книга достижений</p>
+  </div>
+</footer>
+
+<!-- Окно формы -->
+<dialog id="recordDialog" aria-labelledby="formTitle">
+  <form class="dlg" id="recordForm" autocomplete="on">
+    <div class="dlg__head">
+      <h3 id="formTitle">Предложить рекорд</h3>
+      <button class="close" type="button" data-close-form aria-label="Закрыть форму">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15"/></svg>
+      </button>
+    </div>
+    <p class="lead">Заявка не появится на сайте сразу: её сначала получит и проверит администратор.</p>
+
+    <input type="hidden" name="_subject" value="Новая заявка в «Книгу достижений»">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="">
+    <div class="hp" aria-hidden="true"><label>Не заполняйте это поле <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+
+    <div class="field">
+      <label for="f-name">ФИО</label>
+      <input class="input" id="f-name" name="name" type="text" required autocomplete="name" maxlength="120">
+    </div>
+    <div class="field">
+      <label for="f-cat">Категория</label>
+      <select class="input" id="f-cat" name="category" required>
+        <option value="" selected disabled>Выберите категорию</option>
+        <option>Академические достижения (олимпиады, наука)</option>
+        <option>Спортивные рекорды (соревнования, кубки)</option>
+        <option>Творчество и активизм (конкурсы, волонтёрство)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-text">Описание рекорда</label>
+      <textarea class="input" id="f-text" name="description" required minlength="20" maxlength="1500"></textarea>
+      <span class="hint">Что сделано, когда и где. Укажите результат: место, время, число.</span>
+    </div>
+    <div class="field">
+      <label for="f-link">Ссылка на видео <span class="opt">необязательно</span></label>
+      <input class="input" id="f-link" name="video_url" type="url" inputmode="url" placeholder="https://">
+    </div>
+    <div class="field">
+      <label for="f-file">Файл <span class="opt">необязательно</span></label>
+      <input class="input" id="f-file" name="attachment" type="file" accept="image/*,video/*,.pdf">
+      <span class="hint">Фото, видео или PDF — до 10 МБ. Файл или ссылка ускорят проверку.</span>
+    </div>
+
+    <div class="form-foot">
+      <p class="msg" id="formStatus" role="alert"></p>
+      <button class="btn btn--solid btn--lg" type="submit" id="submitBtn">Отправить на проверку</button>
+    </div>
+  </form>
+
+  <div class="dlg done" id="recordDone" hidden>
+    <div class="done__mark" aria-hidden="true">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+    </div>
+    <h3 tabindex="-1">Заявка отправлена</h3>
+    <p>Администратор проверит её и, если всё в порядке, добавит запись в книгу.</p>
+    <p class="demo" id="demoNote" hidden>Демо-режим: адрес администратора ещё не подключён, поэтому письмо не ушло.</p>
+    <button class="btn btn--solid" type="button" data-close-form>Закрыть</button>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============================================================
+     НАСТРОЙКИ
+     ============================================================
+     formEndpoint — адрес сервиса FormSubmit с вашей почтой.
+     Заявки из формы будут уходить письмом на vladik5242@mail.ru.
+     ВАЖНО: при первой отправке на почту придёт письмо от FormSubmit
+     со ссылкой «Activate» — нажмите её один раз, после этого
+     все заявки будут приходить автоматически.
+     ============================================================ */
+  var CONFIG = {
+    heroPhoto: "",   // ссылка на фоновое фото главного экрана (можно оставить пустым)
+    formEndpoint: "https://formsubmit.co/vladik5242@mail.ru",
+    contactEmail: "vladik5242@mail.ru",
+    maxFileMb: 10
+  };
+
+  /* ============ Категории ============ */
+  var CATS = {
+    academic: { label: "Академические достижения", color: "var(--c-academic)", g: ["#3454E6", "#1B2F9E"] },
+    sport:    { label: "Спортивные рекорды",       color: "var(--c-sport)",    g: ["#E8532F", "#A8230E"] },
+    creative: { label: "Творчество и активизм",    color: "var(--c-creative)", g: ["#12A596", "#08594F"] }
+  };
+
+  /* Заглушка вместо фотографии */
+  function portrait(g) {
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">' +
+      '<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="' + g[0] + '"/><stop offset="1" stop-color="' + g[1] + '"/></linearGradient></defs>' +
+      '<rect width="400" height="400" fill="url(#g)"/>' +
+      '<rect x="-80" y="250" width="560" height="320" rx="160" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="16"/>' +
+      '<circle cx="200" cy="158" r="64" fill="rgba(255,255,255,.88)"/>' +
+      '<path d="M64 400c0-82 60-134 136-134s136 52 136 134z" fill="rgba(255,255,255,.88)"/></svg>';
+    return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+  }
+
+  /* ============ Тестовые карточки ============ */
+  var PEOPLE = [
+    {
+      name: "Алиса Громова",
+      cat: "academic",
+      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop&crop=faces",
+      text: "Победитель регионального этапа Всероссийской олимпиады школьников по физике (2025) и призёр заключительного этапа. Автор исследования о солнечных панелях для школьных теплиц — работа отмечена дипломом на конференции «Старт в науку»."
+    },
+    {
+      name: "Тимур Бекетов",
+      cat: "sport",
+      photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=500&fit=crop&crop=faces",
+      text: "Рекордсмен области в беге на 1500 метров среди юниоров — 3:52,4. Обладатель Кубка города по лёгкой атлетике 2026 и трёхкратный чемпион школьной спартакиады."
+    },
+    {
+      name: "Серафима Ковалёва",
+      cat: "creative",
+      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop&crop=faces",
+      text: "Лауреат первой степени конкурса «Юные голоса» (2026). Организовала волонтёрскую акцию «Книга в дар»: собрано больше 1 200 книг для сельских библиотек региона."
+    }
+  ].map(function (p) {
+    if (!p.photo) p.photo = portrait(CATS[p.cat].g);
+    return p;
+  });
+
+  /* ============ Хелперы ============ */
+  var $ = function (s) { return document.querySelector(s); };
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  /* ============ Шапка, футер, фото ============ */
+  var mail = $("#contactMail");
+  mail.textContent = CONFIG.contactEmail;
+  mail.href = "mailto:" + CONFIG.contactEmail;
+  if (CONFIG.heroPhoto) {
+    $("#hero").classList.add("has-photo");
+    $("#hero").style.setProperty("--hero-photo", 'url("' + CONFIG.heroPhoto + '")');
+  }
+
+  /* ============ Каталог ============ */
+  var grid = $("#grid"), empty = $("#empty"), statusEl = $("#status"), chipsBox = $("#chips"), search = $("#search");
+  var state = { cat: "all", q: "" };
+
+  function buildChips() {
+    var defs = [{ key: "all", label: "Все" }].concat(Object.keys(CATS).map(function (k) { return { key: k, label: CATS[k].label }; }));
+    defs.forEach(function (d) {
+      var count = d.key === "all" ? PEOPLE.length : PEOPLE.filter(function (p) { return p.cat === d.key; }).length;
+      var b = el("button", "chip");
+      b.type = "button";
+      b.dataset.cat = d.key;
+      if (d.key !== "all") { b.style.setProperty("--c", CATS[d.key].color); b.append(el("i")); }
+      b.append(document.createTextNode(d.label + " "), el("b", null, String(count)));
+      b.addEventListener("click", function () { state.cat = d.key; render(); });
+      chipsBox.append(b);
+    });
+  }
+
+  function buildCard(p) {
+    var c = CATS[p.cat];
+    var li = el("li");
+    var art = el("article", "card");
+    art.style.setProperty("--c", c.color);
+
+    var ribbon = el("span", "card__ribbon");
+    ribbon.setAttribute("aria-hidden", "true");
+
+    var ph = el("div", "card__photo");
+    var img = new Image();
+    img.src = p.photo;
+    img.alt = "Фотография: " + p.name;
+    img.loading = "lazy";
+    img.referrerPolicy = "no-referrer";
+    img.addEventListener("error", function () { img.src = portrait(c.g); });
+    ph.append(img);
+
+    var body = el("div", "card__body");
+    var tag = el("span", "tag"); tag.append(el("i"), document.createTextNode(c.label));
+    var h = el("h3", null, p.name);
+    var t = el("p", "card__text", p.text);
+    var more = el("button", "more", "Читать полностью");
+    more.type = "button";
+    more.setAttribute("aria-expanded", "false");
+    more.addEventListener("click", function () {
+      var open = t.classList.toggle("is-open");
+      more.setAttribute("aria-expanded", String(open));
+      more.textContent = open ? "Свернуть" : "Читать полностью";
+    });
+
+    body.append(tag, h, t, more);
+    art.append(ribbon, ph, body);
+    li.append(art);
+    return li;
+  }
+
+  function updateMore() {
+    document.querySelectorAll(".card").forEach(function (card) {
+      var t = card.querySelector(".card__text"), b = card.querySelector(".more");
+      if (t.classList.contains("is-open")) { b.hidden = false; return; }
+      b.hidden = t.scrollHeight <= t.clientHeight + 1;
+    });
+  }
+
+  function render() {
+    var q = state.q;
+    var list = PEOPLE.filter(function (p) {
+      return (state.cat === "all" || p.cat === state.cat) &&
+             (!q || p.name.toLowerCase().indexOf(q) > -1 || p.text.toLowerCase().indexOf(q) > -1);
+    });
+    grid.replaceChildren.apply(grid, list.map(buildCard));
+    empty.hidden = list.length > 0;
+    chipsBox.querySelectorAll(".chip").forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.cat === state.cat));
+    });
+    statusEl.textContent = list.length ? "Показано записей: " + list.length + " из " + PEOPLE.length : "";
+    requestAnimationFrame(updateMore);
+  }
+
+  search.addEventListener("input", function () { state.q = search.value.trim().toLowerCase(); render(); });
+  window.addEventListener("resize", updateMore);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateMore);
+
+  buildChips();
+  render();
+
+  /* ============ Форма «Предложить рекорд» ============ */
+  var dlg = $("#recordDialog"), form = $("#recordForm"), done = $("#recordDone");
+  var formStatus = $("#formStatus"), submitBtn = $("#submitBtn"), demoNote = $("#demoNote");
+
+  /* Подставляем адрес возврата после отправки (тот же файл) */
+  var nextInput = form.querySelector('input[name="_next"]');
+  if (nextInput) nextInput.value = location.href.split("#")[0];
+
+  function openForm() {
+    form.hidden = false; done.hidden = true; formStatus.textContent = "";
+    dlg.showModal();
+  }
+  document.querySelectorAll("[data-open-form]").forEach(function (b) { b.addEventListener("click", openForm); });
+  document.querySelectorAll("[data-close-form]").forEach(function (b) { b.addEventListener("click", function () { dlg.close(); }); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+
+  function send(fd) {
+    if (!CONFIG.formEndpoint) {
+      return new Promise(function (resolve) { setTimeout(function () { resolve(true); }, 700); });
+    }
+    return fetch(CONFIG.formEndpoint, {
+      method: "POST",
+      body: fd,
+      headers: { Accept: "application/json" }
+    }).then(function (r) {
+      if (!r.ok) throw new Error("http " + r.status);
+      return false;
+    });
+  }
+
+  function showDone(isDemo) {
+    demoNote.hidden = !isDemo;
+    form.hidden = true; done.hidden = false;
+    form.reset();
+    done.querySelector("h3").focus();
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    formStatus.textContent = "";
+
+    if (form.elements._honey.value) { showDone(false); return; }
+
+    var file = form.elements.attachment.files[0];
+    if (file && file.size > CONFIG.maxFileMb * 1048576) {
+      formStatus.textContent = "Файл больше " + CONFIG.maxFileMb + " МБ. Выберите файл поменьше или вставьте ссылку на видео.";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Отправляем…";
+    send(new FormData(form))
+      .then(showDone)
+      .catch(function () {
+        formStatus.textContent = "Заявка не отправилась. Проверьте интернет и нажмите кнопку ещё раз — введённые данные сохранены.";
+      })
+      .then(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Отправить на проверку";
+      });
+  });
+})();
+</script>
+</body>
+</html>
